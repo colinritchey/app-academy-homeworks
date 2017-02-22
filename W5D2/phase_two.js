@@ -46,16 +46,18 @@ let herd = [ellie, charlie, kate, micah];
 
 // herd.forEach((el) => console.log(Elephant.paradeHelper(el)));
 
-function dinerBreakfast(newOrder) {
+function dinerBreakfast() {
   let order = "scrambled eggs";
+  console.log(`I'd like cheesy ${order} please.`);
 
-  function addOrder(){
-    order += newOrder;
-  }
-
-  return `I'd like cheesy ${order} please`;
+  return function (food) {
+    // order = `${order.slice(0, order.length - 8)} and ${food} please.`;
+    order += ` and ${food}`;
+    console.log(`I'd like cheesy ${order} please.`);
+  };
 }
 
 let bfastOrder = dinerBreakfast();
-console.log(bfastOrder);
-console.log(bfastOrder("chocolate chip pancakes"));
+// bfastOrder();
+bfastOrder("chocolate chip pancakes");
+bfastOrder("grits");
